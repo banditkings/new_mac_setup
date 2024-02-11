@@ -22,3 +22,7 @@ brew install xz     # Helps to install pyenv/poetry later
 
 brew install graphviz  # Needed to make directed graphs with pygraphviz
 ```
+
+## Poetry
+
+See [this gist](https://gist.github.com/banditkings/f00813d95dce905638d88dbae8f810fe) for a Poetry checklist
