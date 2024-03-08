@@ -27,3 +27,36 @@ brew install graphviz  # Needed to make directed graphs with pygraphviz
 ## Poetry
 
 See [this gist](https://gist.github.com/banditkings/f00813d95dce905638d88dbae8f810fe) for a Poetry checklist
+
+## Pyenv
+
+From [pyenv homebrew installation instructions:](https://github.com/pyenv/pyenv?tab=readme-ov-file#homebrew-in-macos):
+
+```bash
+brew update
+brew install pyenv
+```
+
+Then install a new version of python and make it global i.e. 
+
+```bash
+pyenv install 3.10.12
+# make it global
+pyenv global 3.10.12
+```
+
+## Quarto and TinyTex
+
+Download the CLI from [Quarto](https://quarto.org/docs/get-started/) and install for all users
+
+Open a new terminal and install tinytex:
+
+```bash
+quarto install tinytex
+```
+
+Add the VSCode extension as needed. Next we'll need to figure out how to make Quarto play nice with pyenv.
+
+
+
+
