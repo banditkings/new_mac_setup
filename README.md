@@ -55,8 +55,13 @@ Open a new terminal and install tinytex:
 quarto install tinytex
 ```
 
-Add the VSCode extension as needed. Next we'll need to figure out how to make Quarto play nice with pyenv.
+Add the VSCode extension as needed. Next we'll need to figure out how to make Quarto play nice with pyenv. You may need to set the `QUARTO_PYTHON` environment variable to point to your .pyenv shims, typically located in `/Users/youruserid/.pyenv/shims/python`, which you'd need to add to your `.zshrc` file as a new line:
 
+```bash
+export QUARTO_PYTHON=/Users/youruserid/.pyenv/shims/python
+```
 
+and substituting your user id, of course.
+```
 
 
