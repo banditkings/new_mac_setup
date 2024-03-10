@@ -55,14 +55,25 @@ Open a new terminal and install tinytex:
 quarto install tinytex
 ```
 
-Add the VSCode extension as needed. Next we'll need to figure out how to make Quarto play nice with pyenv. You may need to set the `QUARTO_PYTHON` environment variable to point to your .pyenv shims, typically located in `/Users/youruserid/.pyenv/shims/python`, which you'd need to add to your `.zshrc` file as a new line:
+Add the VSCode extension as needed. 
+
+### Quarto within a poetry+pyenv virtual environment
+
+Quarto has a few issues with a poetry/pyenv environment. There aren't any issues with running an interactive session within VSCode because it asks you to specify the jupyter kernel, you're asked to specify the kernel when running an interactive session and it should be able to detect the right one. 
+
+**However**, the problems start once we try to `quarto preview` or `quarto render`. Here I'll talk about the differnt things you can try. A lot of this stems from where your jupyter kernel lives and whether you manage it within a poetry environment.
+
+The key seems to be the `QUARTO_PYTHON` environment variable. You can get it to point to your .pyenv shims, typically located in `/Users/youruserid/.pyenv/shims/python`, which you'd need to add to your `.zshrc` file as a new line:
 
 ```bash
 export QUARTO_PYTHON=/Users/youruserid/.pyenv/shims/python
 ```
+and substituting your user id, of course. If you're simply using `pyenv` then this should be sufficient.
 
-See this site for troublehsooting regarding getting Poetry, pyenv, quarto, and vscode to work together: [A Terminal Coding Experience](https://vcu-ssg.github.io/ssg-quarto-python-setup/)
+However, if you're working within a `poetry` environment, you'll need to set `QUARTO_PYTHON` to the poetry virtual environment, which will be in a directory full of random letters and numbers like `/Users/youruserid/Library/Caches/pypoetry/virtualenvs/quarto-book-5nMdc-E9-py3.10/bin/python`.
 
-and substituting your user id, of course.
+So you could theoretically temporarilily set the `QUARTO_PYTHON` environment variable to this poetry virtual env just before you run the `quarto render` command but this seems suboptimal. Ideally there would be some config file that we can mess with. I need to research this further, 
+
+* Right now, I'm thinking that we need to expose the `poetry` kernel to the `pyenv` version. For example, I have jupyter installed in a `pyenv` envrionment using python 3.10.12, and `poetry` envrionment also using python 3.10.12. If I can link the kernel from one to another then that should be bueno, yes?
 
 
