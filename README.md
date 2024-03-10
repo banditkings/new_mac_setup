@@ -61,7 +61,8 @@ Add the VSCode extension as needed. Next we'll need to figure out how to make Qu
 export QUARTO_PYTHON=/Users/youruserid/.pyenv/shims/python
 ```
 
+See this site for troublehsooting regarding getting Poetry, pyenv, quarto, and vscode to work together: [A Terminal Coding Experience](https://vcu-ssg.github.io/ssg-quarto-python-setup/)
+
 and substituting your user id, of course.
-```
 
 
